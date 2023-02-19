@@ -1,0 +1,37 @@
+--Buscar usuario en base de datos
+BEGIN
+	SELECT ConsecutivoUsuario,
+    	   CorreoElectronico,
+           Case when Estado = 1 
+           	    then 'Activo' 
+                    Else 'Inactivo' End 'Estado',
+           U.TipoUsuario,
+           T.NombreTipoUsuario
+    FROM usuarios U
+    INNER JOIN tipos_usuarios T ON U.TipoUsuario = T.TipoUsuario;
+END
+
+--Iniciar Sesion
+BEGIN
+	SELECT ConsecutivoUsuario,
+    		CorreoElectronico,
+            Estado,
+            TipoUsuario
+	FROM usuarios
+    WHERE CorreoElectronico = pCorreoElectronico
+    AND	Contrasenna = pContrasena
+    AND Estado = 1;
+END
+
+--Insertar Usuario
+BEGIN
+    INSERT INTO usuarios(Contrasenna,CorreoElectronico, Estado, TipoUsuario)
+    VALUES (pContrasenna,pCorreoElectronico,1,1);
+END
+
+--Validar si el correo ya existe en base de datos
+BEGIN
+    SELECT CorreoElectronico
+    FROM usuarios
+    WHERE CorreoElectronico = pCorreoElectronico;
+END
