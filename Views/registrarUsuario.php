@@ -95,8 +95,8 @@ include '../Controllers/AuthenticationController.php'
         success: function(respuesta){
           console.log(respuesta);
           if(respuesta == '1'){
-            console.log('Correo electronico ya registrado');
-            $('#mensaje').html('Correo electronico ya registrado');
+            console.log('Correo electronico ya ha sido registrado');
+            $('#mensaje').html('Correo electronico ya ha sido registrado');
           }else{
             console.log('Correo electronico valido');
             $('#mensaje').html('Correo electronico valido');

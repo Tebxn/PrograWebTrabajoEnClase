@@ -17,7 +17,6 @@ if(isset($_POST["btnIniciarSesion"]))
     {
         header("Location: ../Views/login.php");
     }
-
 }
 
 if(isset($_POST["btnRegistrarse"]))
@@ -43,7 +42,6 @@ if(isset($_POST["btnRegistrarse"]))
     {
         echo '<script>alert("ERROR")</script>';
     }
-
 }
 
 ?>
