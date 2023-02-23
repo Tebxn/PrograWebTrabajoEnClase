@@ -1,5 +1,7 @@
+
 <?php
     include_once 'utilitarios.php';
+    include_once '../Controllers/UsuariosController.php';
 ?>
  
 <!DOCTYPE html>
@@ -23,7 +25,22 @@
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
- 
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>CorreoElectronico</th>
+                <th>Tipo Usuario</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <?php
+            ConsultarUsuarios();
+        ?>
+        </tbody>
+    </table>
+
       </div>
     </section>
   </div>
