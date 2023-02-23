@@ -1,6 +1,14 @@
 <?php
 
-include '../Models/AuthenticationModel.php';
+include_once '../Models/AuthenticationModel.php';
+
+if(session_status() == PHP_SESSION_NONE) 
+{
+    session_start();
+}
+
+
+
 
 if(isset($_POST["btnIniciarSesion"]))
 {
@@ -12,6 +20,10 @@ if(isset($_POST["btnIniciarSesion"]))
     if($respuesta -> num_rows > 0)
     {
         $datosUsuario = mysqli_fetch_array($respuesta);
+
+        $_SESSION["consecutivoUsuario"] = $datosUsuario["ConsecutivoUsuario"];
+        $_SESSION["correoElectronico"] = $datosUsuario["CorreoElectronico"];
+
         header("Location: ../Views/principal.php");
     }else
     {
@@ -44,6 +56,12 @@ if(isset($_POST["btnRegistrarse"]))
         echo '<script>alert("ERROR")</script>';
     }
 
+}
+
+if(isset($_POST["btnCerrarSesion"]))
+{
+    session_destroy();
+    header("Location: ../Views/login.php");
 }
 
 ?>
