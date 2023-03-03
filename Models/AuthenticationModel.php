@@ -26,6 +26,17 @@ function RegistrarUsuarioModel($correoElectronico, $contrasena)
     return $respuesta;
 }
 
+function BuscarUsuarioModel($correoElectronico)
+{
+    $instancia = Open();
+    
+    $sentencia = "CALL ValidarCorreo('$correoElectronico');";
+    $respuesta = $instancia -> query($sentencia);
+
+    Close($instancia);
+    
+    return $respuesta;
+}
 
 
 

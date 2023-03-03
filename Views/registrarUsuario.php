@@ -14,6 +14,7 @@ include_once '../Controllers/AuthenticationController.php';
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="css/Authentication.css">
+  
 </head>
 
 <body class="hold-transition login-page fondo">
@@ -28,7 +29,7 @@ include_once '../Controllers/AuthenticationController.php';
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Correo Electronico" 
-          id="correoElectronico" name="correoElectronico" required>
+          id="correoElectronico" name="correoElectronico" required onblur="ValidarCorreo();">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -40,7 +41,7 @@ include_once '../Controllers/AuthenticationController.php';
 
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Contraseña" 
-          id="contrasena" name="contrasena" required disabled>
+          id="contrasena" name="contrasena" required >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +50,7 @@ include_once '../Controllers/AuthenticationController.php';
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Confirmar Contraseña" 
-          id="contrasena2" name="contrasena2" required disabled onblur="HabilitarRegistro()">
+          id="contrasena2" name="contrasena2" required onblur="HabilitarRegistro()">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -76,44 +77,5 @@ include_once '../Controllers/AuthenticationController.php';
   <script src="js/Authentication.js"></script>
 </body>
 
-
-<script>
-
-    $('#correoElectronico').blur(function(e){
-      e.preventDefault();
-  
-      var email = $('#correoElectronico').val();
-      var dataString = 'email='+email;
-
-      $.ajax({
-        type: "POST",
-        url: 'Ajax/ValidarCorreo.php',
-        data: ('email='+email),
-        beforeSend: function(){
-          console.log(email);
-        },
-        success: function(respuesta){
-          console.log(respuesta);
-          if(respuesta == '1'){
-            console.log('Correo electronico ya registrado');
-            $('#mensaje').html('Correo electronico ya registrado');
-          }else{
-            console.log('Correo electronico valido');
-            $('#mensaje').html('Correo electronico valido');
-            $("#contrasena").prop("disabled", false);
-            $("#contrasena2").prop("disabled", false);
-          }
-        },
-        error: function(xhr) { // if error occured
-        alert("Error occured.please try again");
-        $(placeholder).append(xhr.statusText + xhr.responseText);
-         $(placeholder).removeClass('loading');
-     }
-      })
-    })
-
-
-
-    </script>
 
 </html>
