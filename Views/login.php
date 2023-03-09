@@ -1,7 +1,5 @@
 <?php
 include_once '../Controllers/AuthenticationController.php';
-
-
 ?>
 
 
