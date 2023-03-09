@@ -1,7 +1,6 @@
 <?php
 include_once '../Controllers/AuthenticationController.php';
-?>
-
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +14,10 @@ include_once '../Controllers/AuthenticationController.php';
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="css/Authentication.css">
+  
 </head>
-<body class="hold-transition login-page fondo">
-    
 
+<body class="hold-transition login-page fondo">
 <div class="login-box">
   <div class="login-logo">
     <a href="../../index2.html"><b>Progra</b>Web</a>
@@ -29,48 +28,31 @@ include_once '../Controllers/AuthenticationController.php';
 
       <form action="" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Correo Electronico" 
-          id="correoElectronico" name="correoElectronico" onkeyup="HabilitarCampos()">
+          <input type="emailRecuperar" class="form-control" placeholder="Correo Electronico" 
+          id="emailRecuperar" name="emailRecuperar" required onblur="RecuperarUsuario();">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contraseña" 
-          id="contrasena" name="contrasena" onkeyup="HabilitarCampos()">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
         <div class="row">
-          <div class="col-12">
+            <div class="col-12">
 
             <input type="submit" class="btn btn-primary btn-block" 
-            id="btnIniciarSesion" name="btnIniciarSesion" value="Iniciar Sesion" disabled/>
+            id="btnRecuperar" name="btnRecuperar" value="Recuperar Contraseña" disabled/>
 
           </div>
         </div>
       </form>
-      <p class="mb-1">
-        <a href="recuperarUsuario.php">Olvide mi contraseña</a>
-      </p>
-      <p class="mb-0">
-        <a href="registrarUsuario.php" class="text-center">Registerme</a>
-      </p>
     </div>
   </div>
 </div>
-<script src="plugins/jquery/jquery.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="dist/js/adminlte.min.js"></script>
-<script src="js/Authentication.js"></script>
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="dist/js/adminlte.min.js"></script>
+  <script src="js/Authentication.js"></script>
 </body>
 
 
-
 </html>
-

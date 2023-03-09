@@ -23,6 +23,8 @@ if(isset($_POST["btnIniciarSesion"]))
 
         $_SESSION["consecutivoUsuario"] = $datosUsuario["ConsecutivoUsuario"];
         $_SESSION["correoElectronico"] = $datosUsuario["CorreoElectronico"];
+        $_SESSION["tipoUsuario"] = $datosUsuario["TipoUsuario"];
+        $_SESSION["perfilUsuario"] = $datosUsuario["PerfilUsuario"];
 
         header("Location: ../Views/principal.php");
     }else
@@ -62,4 +64,40 @@ if(isset($_POST["btnCerrarSesion"]))
     header("Location: ../Views/login.php");
 }
 
+if(isset($_POST["BuscarUsuario"]))
+{
+    $correoElectronico = $_POST["Correo"];
+    $respuesta = BuscarUsuarioModel($correoElectronico);
+
+    if($respuesta -> num_rows > 0)
+    {
+        echo '1';
+    }else
+    {
+        echo '0';
+    }
+}
+
+if(isset($_POST["RecuperarUsuario"]))
+{
+    $correoElectronico = $_POST["emailRecuperar"];
+    $respuesta = BuscarUsuarioModel($correoElectronico);
+    $datosUsuario = mysqli_fetch_array($respuesta);
+
+    if($respuesta -> num_rows > 0)
+    {
+        $datosUsuario = mysqli_fetch_array($respuesta);
+
+        $_SESSION["consecutivoUsuario"] = $datosUsuario["ConsecutivoUsuario"];
+        $_SESSION["correoElectronico"] = $datosUsuario["CorreoElectronico"];
+        
+
+        header("Location: ../Views/principal.php");
+    }else
+    {
+        header("Location: ../Views/login.php");
+    }
+
+
+}
 ?>

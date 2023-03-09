@@ -42,7 +42,7 @@ function MostrarMenu()
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="info">
-            <a href="#" class="d-block"> '.$_SESSION["correoElectronico"]. ' </a>
+            <a href="#" class="d-block"> '.$_SESSION["correoElectronico"] . '<br>' . $_SESSION["perfilUsuario"] . ' </a>
           </div>
         </div>
  

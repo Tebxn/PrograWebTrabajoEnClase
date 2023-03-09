@@ -6,7 +6,11 @@ function ConsultarUsuariosModel()
 {
     $instancia = Open();
     
-    $sentencia = "CALL MostrarUsuarios();";
+
+    $usuario = $_SESSION["correoElectronico"];
+    $tipoUsuario = $_SESSION["tipoUsuario"];
+
+    $sentencia = "CALL MostrarUsuarios('$usuario','$tipoUsuario');";
     $respuesta = $instancia -> query($sentencia);
 
     Close($instancia);

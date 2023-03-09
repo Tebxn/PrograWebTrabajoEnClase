@@ -14,6 +14,7 @@ include_once '../Controllers/AuthenticationController.php';
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="css/Authentication.css">
+  
 </head>
 
 <body class="hold-transition login-page fondo">
@@ -28,7 +29,7 @@ include_once '../Controllers/AuthenticationController.php';
       <form action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Correo Electronico" 
-          id="correoElectronico" name="correoElectronico" required>
+          id="correoElectronico" name="correoElectronico" required onblur="ValidarCorreo();">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -40,7 +41,7 @@ include_once '../Controllers/AuthenticationController.php';
 
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Contraseña" 
-          id="contrasena" name="contrasena" required disabled>
+          id="contrasena" name="contrasena" required >
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +50,7 @@ include_once '../Controllers/AuthenticationController.php';
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Confirmar Contraseña" 
-          id="contrasena2" name="contrasena2" required disabled onblur="HabilitarRegistro()">
+          id="contrasena2" name="contrasena2" required onblur="HabilitarRegistro()">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -77,6 +78,7 @@ include_once '../Controllers/AuthenticationController.php';
 </body>
 
 
+<<<<<<< HEAD
 <script>
 
     $('#correoElectronico').blur(function(e){
@@ -116,4 +118,6 @@ include_once '../Controllers/AuthenticationController.php';
 
     </script>
 
+=======
+>>>>>>> d6308fb05b2b9d97e8a6dd6a97588d0bf5d438b6
 </html>
