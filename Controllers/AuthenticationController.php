@@ -23,6 +23,8 @@ if(isset($_POST["btnIniciarSesion"]))
 
         $_SESSION["consecutivoUsuario"] = $datosUsuario["ConsecutivoUsuario"];
         $_SESSION["correoElectronico"] = $datosUsuario["CorreoElectronico"];
+        $_SESSION["tipoUsuario"] = $datosUsuario["TipoUsuario"];
+        $_SESSION["perfilUsuario"] = $datosUsuario["PerfilUsuario"];
 
         header("Location: ../Views/principal.php");
     }else
@@ -90,6 +92,7 @@ if(isset($_POST["RecuperarUsuario"]))
 
         $_SESSION["consecutivoUsuario"] = $datosUsuario["ConsecutivoUsuario"];
         $_SESSION["correoElectronico"] = $datosUsuario["CorreoElectronico"];
+        
 
         header("Location: ../Views/principal.php");
     }else

@@ -14,14 +14,23 @@ function ConsultarUsuarios()
                 echo "<td>" . $row['CorreoElectronico'] . "</td>";
                 echo "<td>" . $row['NombreTipoUsuario'] . "</td>";
                 echo "<td>" . $row['DescEstado'] . "</td>";
+                
+
+                if($_SESSION["tipoUsuario"] == 1)    
+                {
+                    echo "<td>
+                    <a href='../Views/actualizarUsuario.php'>Actualizar</a> | <a href=''>Eliminar</a>
+                    </td>";
+                }else{
+                    echo "<td>      
+                    <a href='../Views/actualizarUsuario.php'>Actualizar</a>
+                    </td>";
+                }  
+                
+                
             echo "</tr>";
 
         }
-        
-    }else
-    {
-        echo 'no hay datos';
-    }
 
 }
 
@@ -50,5 +59,19 @@ if(isset($_POST["btnRegistrarse"]))
     }
 
 }
+
+function ConsultarPerfiles()
+{
+    $respuesta = ConsultarUsuariosModel();
+
+    if($respuesta -> num_rows > 0)
+    {
+        while($row = mysqli_fetch_array($respuesta))
+        {
+            echo "<option value=" . $row['ConsecutivoUsuario'] . $row['ConsecutivoUsuario'] . "</option>";
+        }
+    }
+}
+
 
 ?>
